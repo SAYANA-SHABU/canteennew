@@ -1,0 +1,200 @@
+/* AnimatedLogo.css - Dark Theme with Neon Accents */
+.animated-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #e2e8f0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  visibility: visible;
+}
+
+.animated-logo-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.logo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.video-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 35px rgba(6, 182, 212, 0.3),
+    0 0 40px rgba(6, 182, 212, 0.1) inset;
+  animation: float 3s ease-in-out infinite, pulse 4s ease-in-out infinite;
+  border: 2px solid rgba(6, 182, 212, 0.2);
+}
+
+.round-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 
+      0 15px 35px rgba(6, 182, 212, 0.3),
+      0 0 40px rgba(6, 182, 212, 0.1) inset;
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 
+      0 25px 45px rgba(6, 182, 212, 0.4),
+      0 0 50px rgba(6, 182, 212, 0.2) inset;
+  }
+}
+
+.logo-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  margin-top: 1rem;
+}
+
+.logo-highlight {
+  color: #06b6d4;
+  text-shadow: 0 0 25px rgba(6, 182, 212, 0.9);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.logo-subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0;
+  margin-top: -1.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  color: #94a3b8;
+}
+
+.loading-bar {
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.loading-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+  border-radius: 2px;
+  animation: loading 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes loading {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.logo-subtitle.animate-fade-in {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(6, 182, 212, 0.9), 0 0 40px rgba(6, 182, 212, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .logo-title {
+    font-size: 3.5rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .loading-bar {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .logo-title {
+    font-size: 2.8rem;
+  }
+  
+  .logo-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .loading-bar {
+    width: 200px;
+  }
+}
